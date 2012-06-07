@@ -67,7 +67,7 @@ module WillPaginate
           rel = rel.apply_finder_options(@wp_count_options) if defined? @wp_count_options
           result = rel.count
           # TODO: hack. handle count result returned by grouped relation
-          result.is_a?(Hash) ? result.values.reduce(&:+) : result
+          result.is_a?(Hash) ? result.length : result
         else
           super :distinct => true
         end
